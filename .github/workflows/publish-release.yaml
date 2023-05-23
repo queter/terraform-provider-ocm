@@ -55,6 +55,6 @@ jobs:
 
     - name: 'Build Inventory Image'
       run: |
-        docker build . --tag ghcr.io/queter/store:latest
-        docker push ghcr.io/queter/store:latest
+        podman build . --tag ghcr.io/queter/store:latest
+        podman push ghcr.io/queter/store:latest
 
