@@ -25,7 +25,7 @@ permissions:
   contents: write
 
 env:
-  REGISTRY_USER: ${{ github.actor }}
+  REGISTRY_USER: "queter"
   REGISTRY_PASSWORD: ${{ github.token }}
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
