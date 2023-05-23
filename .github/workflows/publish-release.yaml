@@ -42,8 +42,8 @@ jobs:
       with:
         go-version: 1.18
 
-    - name: Install Docker
-      run: curl -fsSL https://get.docker.com -o install-docker.sh && sh install-docker.sh
+    - name: Install Podman
+      run: dnf -y install podman
 
     - name: 'Login to GitHub Container Registry'
       uses: docker/login-action@v1
