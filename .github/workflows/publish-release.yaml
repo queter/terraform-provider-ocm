@@ -25,8 +25,9 @@ permissions:
   contents: write
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  REGISTRY_USER: ${{ github.actor }}
+  REGISTRY_PASSWORD: ${{ github.token }}
+  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
   push-store-image:
@@ -50,7 +51,7 @@ jobs:
       with:
         username: ${{ env.REGISTRY_USER }}
         password: ${{ env.REGISTRY_PASSWORD }}
-        registry: ${{ env.REGISTRY }}
+        registry: ${{ env.IMAGE_REGISTRY }}
 
     - name: 'Build Inventory Image'
       run: |
