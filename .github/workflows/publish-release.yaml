@@ -29,7 +29,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  release:
+  push-store-image:
     name: Publish release
     runs-on: ubuntu-latest
     container: redhat/ubi8
@@ -49,16 +49,9 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@test-wf
-      with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@test-wf
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+    - name: 'Build Inventory Image'
+      run: |
+        docker build . --tag ghcr.io/queter/store:latest
+        docker push ghcr.io/queter/store:latest
+
