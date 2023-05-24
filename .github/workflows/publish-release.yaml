@@ -47,7 +47,7 @@ jobs:
       uses: redhat-actions/podman-login@v1
       with:
         username: ${{ env.REGISTRY_USER }}
-        password: ${{ secrets.REG_TOKEN }}
+        password: ${{ env.REGISTRY_PASSWORD }}
         registry: ghcr.io
 
     - name: 'Build Inventory Image'
