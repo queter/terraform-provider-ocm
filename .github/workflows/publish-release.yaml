@@ -43,6 +43,11 @@ jobs:
       with:
         go-version: 1.18
 
+    - name: Install container-tools
+      run: |
+        sudo yum module enable -y container-tools:rhel8
+        sudo yum module install -y container-tools:rhel8
+
     - name: Log in to ghcr.io
       uses: redhat-actions/podman-login@v1
       with:
