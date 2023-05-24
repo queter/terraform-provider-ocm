@@ -36,6 +36,8 @@ jobs:
     runs-on: ubuntu-latest
     container: redhat/ubi8
     steps:
+    - name: setup
+      run: chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
     - name: Checkout the source
       uses: actions/checkout@v2
       with:
@@ -50,13 +52,11 @@ jobs:
     - name: Install git
       run: |
         dnf -y install git
-        git config --system --add safe.directory /__w/terraform-provider-ocm/terraform-provider-ocm
 
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v2
       with:
         version: latest
         args: release --rm-dist
-        workdir: ./__w/terraform-provider-ocm/terraform-provider-ocm
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
