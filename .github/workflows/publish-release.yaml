@@ -37,7 +37,7 @@ jobs:
     container: redhat/ubi8
     steps:
     - name: setup
-      run: chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      run: chmod -R 777 $GITHUB_WORKSPACE /github /__w/
     - name: Checkout the source
       uses: actions/checkout@v1
       with:
