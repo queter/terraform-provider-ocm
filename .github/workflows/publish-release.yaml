@@ -33,7 +33,7 @@ jobs:
   push-store-image:
     name: Publish release
     runs-on: ubuntu-latest
-    container: registry.access.redhat.com/ubi8/podman:latest
+    #container: registry.access.redhat.com/ubi8/podman:latest
     steps:
     - name: Checkout the source
       uses: actions/checkout@v2
