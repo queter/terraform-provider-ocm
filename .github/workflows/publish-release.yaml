@@ -57,5 +57,6 @@ jobs:
       with:
         version: latest
         args: release --rm-dist
+        workdir: ./__w/terraform-provider-ocm/terraform-provider-ocm
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
