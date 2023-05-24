@@ -36,8 +36,12 @@ jobs:
     runs-on: ubuntu-latest
     container: redhat/ubi8
     steps:
-    - name: setup
-      run: chmod -R 777 $GITHUB_WORKSPACE /github /__w/
+    #- name: setup
+    #  run: chmod -R 777 $GITHUB_WORKSPACE /github /__w/
+    - name: Install git
+      run: |
+        dnf -y install git
+
     - name: Checkout the source
       uses: actions/checkout@v1
       with:
@@ -50,10 +54,6 @@ jobs:
       with:
         go-version: 1.18
         cache: true
-
-    - name: Install git
-      run: |
-        dnf -y install git
 
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v2
