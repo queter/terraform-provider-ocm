@@ -47,6 +47,7 @@ jobs:
       run: |
         dnf -y install git
         git init
+        git config --global --add safe.directory /__w/terraform-provider-ocm/terraform-provider-ocm
 
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v2.8.0
