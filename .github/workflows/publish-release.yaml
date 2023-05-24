@@ -48,8 +48,6 @@ jobs:
     - name: Install git
       run: |
         dnf -y install git
-        mkdir /src
-        git init
 
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v4
