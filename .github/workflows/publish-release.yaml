@@ -47,6 +47,9 @@ jobs:
       run: |
         yum module enable -y container-tools:rhel8
         yum module install -y container-tools:rhel8
+        useradd podman
+        echo podman:10000:5000 > /etc/subuid
+        echo podman:10000:5000 > /etc/subgid
 
     - name: Log in to ghcr.io
       uses: redhat-actions/podman-login@v1
