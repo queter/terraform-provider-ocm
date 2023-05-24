@@ -28,7 +28,7 @@ env:
   REGISTRY_USER: queter
   #REGISTRY_PASSWORD: ${{ secrets._PASSWORD }}
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
-  GIT_DISCOVERY_ACROSS_FILESYSTEM: 1
+  #GIT_DISCOVERY_ACROSS_FILESYSTEM: 1
 
 jobs:
   release:
@@ -44,8 +44,6 @@ jobs:
 
     - name: Checkout the source
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
     - name: workaround
       run: git config --system --add safe.directory /__w/terraform-provider-ocm/terraform-provider-ocm
 
@@ -53,7 +51,6 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: 1.18
-        cache: true
 
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v2
