@@ -26,7 +26,7 @@ permissions:
 
 env:
   REGISTRY_USER: queter
-  REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+  #REGISTRY_PASSWORD: ${{ secrets._PASSWORD }}
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
