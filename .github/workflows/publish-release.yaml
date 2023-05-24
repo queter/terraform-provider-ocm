@@ -26,7 +26,7 @@ permissions:
 
 env:
   REGISTRY_USER: "queter"
-  REGISTRY_PASSWORD: ${{ github.token }}
+  #REGISTRY_PASSWORD: ${{ github.token }}
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
       uses: redhat-actions/podman-login@v1
       with:
         username: ${{ env.REGISTRY_USER }}
-        password: ${{ env.REGISTRY_PASSWORD }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
         registry: ${{ env.IMAGE_REGISTRY }}
 
     - name: 'Build Inventory Image'
