@@ -43,6 +43,10 @@ jobs:
       with:
         go-version: 1.18
 
+    - name: Install git
+      run: |
+        dnf -y install git
+
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v2.8.0
       with:
