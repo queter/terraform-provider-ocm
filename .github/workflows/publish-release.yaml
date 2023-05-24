@@ -48,13 +48,11 @@ jobs:
     - name: Install git
       run: |
         dnf -y install git
-        git config --system --add safe.directory /github/workspace
-
+        git config --system --add safe.directory /__w/terraform-provider-ocm/terraform-provider-ocm
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v4
       with:
         version: latest
         args: release --clean
-        workdir: /github/workspace
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
