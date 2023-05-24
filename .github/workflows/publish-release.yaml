@@ -48,7 +48,7 @@ jobs:
     - name: Install git
       run: |
         dnf -y install git
-
+    - run: git fetch --force --tags
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v4
       with:
