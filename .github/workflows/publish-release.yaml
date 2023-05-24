@@ -48,8 +48,8 @@ jobs:
     - name: Install git
       run: |
         dnf -y install git
-    #- run: git fetch --force --tags
         git config --system --add safe.directory .
+
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v4
       with:
