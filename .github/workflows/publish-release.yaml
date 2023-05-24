@@ -48,7 +48,7 @@ jobs:
       with:
         username: ${{ env.REGISTRY_USER }}
         password: ${{ secrets.REG_TOKEN }}
-        registry: ${{ env.IMAGE_REGISTRY }}
+        registry: ghcr.io
 
     - name: 'Build Inventory Image'
       run: |
