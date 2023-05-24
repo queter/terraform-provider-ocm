@@ -39,7 +39,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
-    - run: git config --system --add safe.directory .
 
     - name: Setup Go
       uses: actions/setup-go@v4
@@ -49,7 +48,8 @@ jobs:
     - name: Install git
       run: |
         dnf -y install git
-    - run: git fetch --force --tags
+    #- run: git fetch --force --tags
+        git config --system --add safe.directory .
     - name: Run releaser
       uses: goreleaser/goreleaser-action@v4
       with:
